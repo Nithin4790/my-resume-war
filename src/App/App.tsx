@@ -1,11 +1,15 @@
+import { ThemeProvider } from '@material-ui/core'
 import React from 'react'
-import './App.css'
+import Header from '../components/Header'
+import { theme } from './theme'
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Header</h1>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Header />
+      </div>
+    </ThemeProvider>
   )
 }
 
