@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from '@material-ui/styles'
 
-const HeaderStyles = makeStyles((theme) =>
+const HeaderStyles = makeStyles(() =>
   createStyles({
     root: {
       flexGrow: 1,
