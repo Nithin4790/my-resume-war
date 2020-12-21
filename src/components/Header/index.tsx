@@ -7,18 +7,26 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import HeaderStyles from 'components/Header/styles/Header'
 
-const Header: React.FC = () => {
-  const classes = HeaderStyles()
+interface Props {
+  drawerState: boolean
+  onDrawerStateUpdate: (drawerState: boolean) => void
+}
 
+const Header: React.FC<Props> = (props: Props) => {
+  const classes = HeaderStyles()
+  const toggleDrawerState = () => {
+    props.onDrawerStateUpdate(!props.drawerState)
+  }
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={toggleDrawerState}
           >
             <MenuIcon />
           </IconButton>
