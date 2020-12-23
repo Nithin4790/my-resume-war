@@ -3,6 +3,7 @@ import SideNavMenu from 'components/SideNavMenu'
 import Header from 'components/Header'
 import { Container, CssBaseline } from '@material-ui/core'
 import DashboardPageStyles from './styles/DashboardPage'
+import GlobalErrorHandler from 'util/GlobalErrorHandler'
 
 const DashboardPage: React.FC = () => {
   const classes = DashboardPageStyles()
@@ -17,7 +18,9 @@ const DashboardPage: React.FC = () => {
         <CssBaseline />
         <Container>
           <Header drawerState={drawerState} onDrawerStateUpdate={updateDrawerState} />
-          <SideNavMenu drawerState={drawerState} />
+          <GlobalErrorHandler>
+            <SideNavMenu drawerState={drawerState} />
+          </GlobalErrorHandler>
         </Container>
       </div>
     </div>
