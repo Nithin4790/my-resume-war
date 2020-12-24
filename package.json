@@ -25,9 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "wbuild": "npx webpack",
+    "wstart": "npx webpack serve --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -48,9 +47,11 @@
     ]
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.3.0",
+    "html-webpack-plugin": "^4.5.0",
     "prettier": "^2.2.1",
     "ts-loader": "^8.0.12",
     "webpack-cli": "^4.2.0"

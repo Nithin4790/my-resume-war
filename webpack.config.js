@@ -1,4 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -10,7 +12,27 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        exclude: /node_modules/,
+        use: ['file-loader?name=[name].[ext]'], // ?name=[name].[ext] is only necessary to preserve the original file name
+      },
     ],
+  },
+  devtool: 'eval-source-map',
+  plugins: [
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './firebase-index-template.html',
+      favicon: './public/favicon.ico',
+    }),
+  ],
+  devServer: {
+    contentBase: './build',
+    publicPath: '/',
+    historyApiFallback: true,
+    port: 9000,
   },
   resolve: {
     alias: {
