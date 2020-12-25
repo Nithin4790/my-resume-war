@@ -2,9 +2,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
 const HeaderStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-    },
     menuButton: {
       marginRight: 2,
     },
@@ -12,7 +9,6 @@ const HeaderStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     appBar: {
-      position: 'fixed',
       zIndex: theme.zIndex.drawer + 1,
     },
   })

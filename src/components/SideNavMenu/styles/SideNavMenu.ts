@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
-const drawerWidth = 240
+const drawerWidth = 200
 
 const SideNavMenuStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -9,13 +9,11 @@ const SideNavMenuStyles = makeStyles((theme: Theme) =>
     },
     drawer: {
       width: drawerWidth,
-      flexShrink: 0,
     },
     drawerPaper: {
       width: drawerWidth,
     },
     drawerContainer: {
-      overflow: 'auto',
       marginTop: 60,
     },
     drawerOpen: {
@@ -35,6 +33,15 @@ const SideNavMenuStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up('sm')]: {
         width: theme.spacing(9) + 1,
       },
+    },
+    drawerWrapper: {
+      width: drawerWidth,
+    },
+    contentWrapper: {
+      flexGrow: 1,
+      height: '100vh',
+      overflow: 'auto',
+      marginTop: 60,
     },
   })
 )

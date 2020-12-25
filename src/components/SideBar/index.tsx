@@ -1,27 +1,38 @@
+import {
+  CssBaseline,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from '@material-ui/core'
+import clsx from 'clsx'
 import React from 'react'
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-import SideNavMenuStyles from 'components/SideNavMenu/styles/SideNavMenu'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
+import SideBarStyles from './styles/SideBar'
 
 interface Props {
   drawerState: boolean
 }
 
-const SideNavMenu: React.FC<Props> = (props: Props) => {
-  const classes = SideNavMenuStyles()
+const SideBar: React.FC<Props> = (props: Props) => {
+  const classes = SideBarStyles()
+
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <Drawer
-        variant="persistent"
-        anchor="left"
-        className={classes.drawer}
-        open={props.drawerState}
+        variant="permanent"
         classes={{
-          paper: classes.drawerPaper,
+          paper: clsx(
+            classes.drawerPaper,
+            !props.drawerState && classes.drawerPaperClose
+          ),
         }}
+        open={props.drawerState}
       >
-        <div className={classes.drawerContainer}>
+        <div className={classes.drawerListWrapper}>
           <List>
             {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem button key={text}>
@@ -34,11 +45,11 @@ const SideNavMenu: React.FC<Props> = (props: Props) => {
           </List>
         </div>
       </Drawer>
-      <div className={classes.contentWrapper}>
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
         <h1>Hello</h1>
-      </div>
+      </main>
     </div>
   )
 }
-
-export default SideNavMenu
+export default SideBar
