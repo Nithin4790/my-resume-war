@@ -9,7 +9,11 @@ const HeaderStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     appBar: {
+      height: '64px',
       zIndex: theme.zIndex.drawer + 1,
+    },
+    toolBar: {
+      height: '64px',
     },
   })
 )

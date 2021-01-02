@@ -1,24 +1,32 @@
-import {
-  CssBaseline,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from '@material-ui/core'
+import { CssBaseline, Drawer } from '@material-ui/core'
 import clsx from 'clsx'
 import React from 'react'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
 import SideBarStyles from './styles/SideBar'
+import SideBarListItems from 'components/SideBarListItems'
+import CreateResumePage from 'pages/CreateResume'
 
 interface Props {
   drawerState: boolean
+  content?: React.ReactNode
 }
 
 const SideBar: React.FC<Props> = (props: Props) => {
   const classes = SideBarStyles()
-
+  const [selectedSideBarItem, setSelectedSideBarItem] = React.useState('null')
+  const selectContent = () => {
+    switch (selectedSideBarItem) {
+      case 'dashboard':
+        return <p>Dashboard</p>
+      case 'create':
+        return <CreateResumePage />
+      case 'saved':
+        return <p>Saved</p>
+      case 'logout':
+        return <p>logout</p>
+      default:
+        return <p>Default</p>
+    }
+  }
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -32,22 +40,10 @@ const SideBar: React.FC<Props> = (props: Props) => {
         }}
         open={props.drawerState}
       >
-        <div className={classes.drawerListWrapper}>
-          <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </div>
+        <SideBarListItems setSelectedSideBarItem={setSelectedSideBarItem} />
       </Drawer>
       <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <h1>Hello</h1>
+        <div>{selectContent()}</div>
       </main>
     </div>
   )

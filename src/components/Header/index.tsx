@@ -19,7 +19,7 @@ const Header: React.FC<Props> = (props: Props) => {
   }
   return (
     <AppBar className={classes.appBar}>
-      <Toolbar>
+      <Toolbar className={classes.toolBar}>
         <IconButton
           edge="start"
           className={classes.menuButton}

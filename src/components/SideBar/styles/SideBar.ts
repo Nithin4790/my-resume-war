@@ -1,20 +1,11 @@
 import { makeStyles, Theme } from '@material-ui/core/styles'
 
-const drawerWidth = 240
+const drawerWidth = 200
 
 const SideBarStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
-  },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-  },
-  toolbarIcon: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
+    marginTop: 60,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -30,12 +21,6 @@ const SideBarStyles = makeStyles((theme: Theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  menuButtonHidden: {
-    display: 'none',
   },
   title: {
     flexGrow: 1,
@@ -60,27 +45,17 @@ const SideBarStyles = makeStyles((theme: Theme) => ({
       width: theme.spacing(9),
     },
   },
-  appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: '100Vh',
     overflow: 'auto',
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    margin: 10,
   },
   paper: {
     padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
-  },
-  fixedHeight: {
-    height: 240,
-  },
-  drawerListWrapper: {
-    marginTop: 60,
   },
 }))
 

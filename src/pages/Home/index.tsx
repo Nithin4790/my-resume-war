@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Header from 'components/Header'
 import { CssBaseline, useMediaQuery } from '@material-ui/core'
-import DashboardPageStyles from 'pages/Dashboard/styles/DashboardPage'
+import HomePageStyles from 'pages/Home/styles/HomePage'
 import GlobalErrorHandler from 'util/GlobalErrorHandler'
 import SideBar from 'components/SideBar'
 import CreateResumePage from 'pages/CreateResume'
 
-const DashboardPage: React.FC = () => {
-  const classes = DashboardPageStyles()
+const HomePage: React.FC = () => {
+  const classes = HomePageStyles()
   const initDrawerState = useMediaQuery('(min-width:600px)')
   const [drawerState, setDrawerState] = useState<boolean>(!initDrawerState)
 
@@ -34,4 +34,4 @@ const DashboardPage: React.FC = () => {
   )
 }
 
-export default DashboardPage
+export default HomePage
