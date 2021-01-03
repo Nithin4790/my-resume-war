@@ -8,7 +8,7 @@ export interface WorkExperienceType {
   description: string | null
 }
 
-export const initWorkExperienceTypeValues: WorkExperienceType = {
+export const initWorkExperienceValues: WorkExperienceType = {
   jobTitle: '',
   currentlyWorkingInd: false,
   startDate: '',

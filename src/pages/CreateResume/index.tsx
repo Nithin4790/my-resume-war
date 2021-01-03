@@ -5,6 +5,8 @@ import PersonalInfoForm from 'pages/CreateResume/components/PersonalInfoForm'
 import WorkExperienceForm from 'pages/CreateResume/components/WorkExperienceForm'
 import ResumeFormStepper from 'pages/CreateResume/components/ResumeFormStepper'
 import * as Yup from 'yup'
+import { initWorkExperienceValues } from 'models/WorkExperienceType'
+import { initialResumeFormValues } from 'models/ResumeFormType'
 
 const CreateResumePage: React.FC = () => {
   const handleSubmit = () => {
@@ -21,7 +23,7 @@ const CreateResumePage: React.FC = () => {
       <Card>
         <CardContent>
           <ResumeFormStepper
-            initialValues={initPersonalInfoValues}
+            initialValues={initialResumeFormValues}
             onSubmit={() => {
               handleSubmit()
             }}

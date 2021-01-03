@@ -1,6 +1,7 @@
 import FormDatePicker from 'components/FormDatePicker'
 import { FormTextField } from 'components/FormTextField'
-import { Field } from 'formik'
+import { Field, useFormikContext } from 'formik'
+import { ResumeFormType } from 'models/ResumeFormType'
 import React from 'react'
 import ResumeFormStep from '../ResumeFormStep'
 import { ResumeStepProps } from '../ResumeFormStepper'
@@ -8,36 +9,63 @@ import WorkExperienceFormStyles from './styles/WorkExperienceForm'
 
 const WorkExperienceForm: React.FC<ResumeStepProps> = (props: ResumeStepProps) => {
   const classes = WorkExperienceFormStyles()
+  const {
+    values: { workExperience },
+  } = useFormikContext<ResumeFormType>()
+
   return (
     <div className={classes.root}>
       <ResumeFormStep label={props.label} validationSchema={props.validationSchema}>
-        <Field fullWidth name="jobTitle" component={FormTextField} label="Job Title" />
+        <Field
+          fullWidth
+          name="workExperience.jobTitle"
+          component={FormTextField}
+          label="Job Title"
+        />
         <div className={classes.checkboxWrapper}>
           <label>
-            <Field type="checkbox" name="currentlyWorkingInd" />
+            <Field type="checkbox" name="workExperience.currentlyWorkingInd" />
             &nbsp;&nbsp;Currently Working
           </label>
         </div>
         <div className={classes.dateFieldWrapper}>
           <div className={classes.dateFieldItem}>
-            <Field component={FormDatePicker} name="startDate" label="Start Date" />
+            <Field
+              component={FormDatePicker}
+              name="workExperience.startDate"
+              label="Start Date"
+              views={['year', 'month']}
+              format="MM/yy"
+            />
           </div>
-          {console.log(props)}
-          <div className={classes.dateFieldItem}>
-            <Field component={FormDatePicker} name="endDate" label="End Date" />
-          </div>
+          {!workExperience.currentlyWorkingInd && (
+            <div className={classes.dateFieldItem}>
+              <Field
+                component={FormDatePicker}
+                name="workExperience.endDate"
+                label="End Date"
+                views={['year', 'month']}
+                format="MM/yy"
+              />
+            </div>
+          )}
         </div>
 
         <Field
           fullWidth
-          name="companyName"
+          name="workExperience.companyName"
           component={FormTextField}
           label="Company Name"
         />
-        <Field fullWidth name="location" component={FormTextField} label="Location" />
         <Field
           fullWidth
-          name="description"
+          name="workExperience.location"
+          component={FormTextField}
+          label="Location"
+        />
+        <Field
+          fullWidth
+          name="workExperience.description"
           component={FormTextField}
           label="Description"
         />
