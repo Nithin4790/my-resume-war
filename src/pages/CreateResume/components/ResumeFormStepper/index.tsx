@@ -38,7 +38,6 @@ const ResumeFormStepper: React.FC<FormikConfig<FormikValues>> = ({
         if (isLastStep()) {
           await props.onSubmit(values, helpers)
           setCompleted(true)
-          console.log(values)
         } else {
           setStep((s) => s + 1)
           helpers.setTouched({})

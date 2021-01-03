@@ -10,7 +10,9 @@ import WorkExperienceFormStyles from './styles/WorkExperienceForm'
 const WorkExperienceForm: React.FC<ResumeStepProps> = (props: ResumeStepProps) => {
   const classes = WorkExperienceFormStyles()
   const {
-    values: { workExperience },
+    values: {
+      workExperience: { currentlyWorkingInd },
+    },
   } = useFormikContext<ResumeFormType>()
 
   return (
@@ -36,9 +38,10 @@ const WorkExperienceForm: React.FC<ResumeStepProps> = (props: ResumeStepProps) =
               label="Start Date"
               views={['year', 'month']}
               format="MM/yy"
+              maxDate={new Date()}
             />
           </div>
-          {!workExperience.currentlyWorkingInd && (
+          {!currentlyWorkingInd && (
             <div className={classes.dateFieldItem}>
               <Field
                 component={FormDatePicker}
@@ -46,6 +49,7 @@ const WorkExperienceForm: React.FC<ResumeStepProps> = (props: ResumeStepProps) =
                 label="End Date"
                 views={['year', 'month']}
                 format="MM/yy"
+                maxDate={new Date()}
               />
             </div>
           )}

@@ -1,11 +1,9 @@
 import { Card, CardContent } from '@material-ui/core'
 import React from 'react'
-import { initPersonalInfoValues } from 'models/PersonalInfoType'
 import PersonalInfoForm from 'pages/CreateResume/components/PersonalInfoForm'
 import WorkExperienceForm from 'pages/CreateResume/components/WorkExperienceForm'
 import ResumeFormStepper from 'pages/CreateResume/components/ResumeFormStepper'
 import * as Yup from 'yup'
-import { initWorkExperienceValues } from 'models/WorkExperienceType'
 import { initialResumeFormValues } from 'models/ResumeFormType'
 
 const CreateResumePage: React.FC = () => {

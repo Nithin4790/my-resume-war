@@ -8,7 +8,7 @@ const FormDatePicker: React.FC<KeyboardDatePickerProps> = (
 ) => {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker fullWidth clearable autoOk {...props} />
+      <KeyboardDatePicker fullWidth autoOk {...props} />
     </MuiPickersUtilsProvider>
   )
 }
