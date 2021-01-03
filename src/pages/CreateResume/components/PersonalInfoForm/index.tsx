@@ -1,8 +1,8 @@
 import { Field } from 'formik'
 import React from 'react'
-import ResumeFormStep from '../ResumeFormStep'
-import { ResumeStepProps } from '../ResumeFormStepper'
-import PersonalInfoFormStyles from './styles/PersonalInfoForm'
+import ResumeFormStep from 'pages/CreateResume/components/ResumeFormStep'
+import { ResumeStepProps } from 'pages/CreateResume/components/ResumeFormStepper'
+import PersonalInfoFormStyles from 'pages/CreateResume/components/PersonalInfoForm/styles/PersonalInfoForm'
 import { FormTextField } from 'components/FormTextField'
 
 const PersonalInfoForm: React.FC<ResumeStepProps> = (props: ResumeStepProps) => {

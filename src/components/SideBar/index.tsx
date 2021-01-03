@@ -1,7 +1,7 @@
 import { CssBaseline, Drawer } from '@material-ui/core'
 import clsx from 'clsx'
 import React from 'react'
-import SideBarStyles from './styles/SideBar'
+import SideBarStyles from 'components/SideBar/styles/SideBar'
 import SideBarListItems from 'components/SideBarListItems'
 import CreateResumePage from 'pages/CreateResume'
 

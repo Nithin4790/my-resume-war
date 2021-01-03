@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@material-ui/core'
 import React from 'react'
 import { theme } from 'app/theme'
-import { Routes } from './routes'
+import { Routes } from 'app/routes'
 
 const App: React.FC = () => {
   return (

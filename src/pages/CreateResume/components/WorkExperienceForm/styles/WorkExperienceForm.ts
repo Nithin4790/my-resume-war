@@ -17,6 +17,13 @@ const WorkExperienceStyles = makeStyles(() =>
       justifyContent: 'space-between',
     },
     dateFieldItem: { flex: '1 1 auto' },
+    addButtonWrapper: {
+      margin: '20px 0 10px 0',
+    },
+    removeButtonWrapper: {
+      margin: '20px 0 10px 0',
+      textAlign: 'right',
+    },
   })
 )
 

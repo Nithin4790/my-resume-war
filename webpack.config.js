@@ -40,6 +40,7 @@ module.exports = {
       components: path.resolve(__dirname, './src/components'),
       pages: path.resolve(__dirname, './src/pages'),
       util: path.resolve(__dirname, './src/util'),
+      models: path.resolve(__dirname, './src/models'),
     },
     extensions: ['.tsx', '.ts', '.js'],
   },

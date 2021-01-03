@@ -1,12 +1,12 @@
-import { initPersonalInfoValues, PersonalInfoType } from './PersonalInfoType'
-import { initWorkExperienceValues, WorkExperienceType } from './WorkExperienceType'
+import { initPersonalInfoValues, PersonalInfoType } from 'models/PersonalInfoType'
+import { initWorkExperienceValues, WorkExperienceType } from 'models/WorkExperienceType'
 
 export interface ResumeFormType {
   personalInfo: PersonalInfoType
-  workExperience: WorkExperienceType
+  workExperience: WorkExperienceType[]
 }
 
 export const initialResumeFormValues = {
   personalInfo: initPersonalInfoValues,
-  workExperience: initWorkExperienceValues,
+  workExperience: [initWorkExperienceValues],
 }

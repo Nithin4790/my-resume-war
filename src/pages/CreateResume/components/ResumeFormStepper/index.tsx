@@ -38,6 +38,7 @@ const ResumeFormStepper: React.FC<FormikConfig<FormikValues>> = ({
         if (isLastStep()) {
           await props.onSubmit(values, helpers)
           setCompleted(true)
+          console.log(values)
         } else {
           setStep((s) => s + 1)
           helpers.setTouched({})
@@ -52,35 +53,43 @@ const ResumeFormStepper: React.FC<FormikConfig<FormikValues>> = ({
                 <StepLabel onClick={() => setStep(index)}>
                   {childrenArray[index].props.label}
                 </StepLabel>
-                <StepContent>{child}</StepContent>
+                <StepContent>
+                  {child}
+                  <Grid container spacing={2} justify="center">
+                    {step > 0 ? (
+                      <Grid item>
+                        <Button
+                          disabled={step === 0}
+                          variant="contained"
+                          color="primary"
+                          onClick={() => setStep((s) => s - 1)}
+                        >
+                          Back
+                        </Button>
+                      </Grid>
+                    ) : null}
+                    <Grid item>
+                      <Button
+                        startIcon={
+                          props.isSubmitting ? <CircularProgress size="1rem" /> : null
+                        }
+                        disabled={props.isSubmitting}
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        {props.isSubmitting
+                          ? 'Submitting'
+                          : isLastStep()
+                          ? 'Submit'
+                          : 'Next'}
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </StepContent>
               </Step>
             ))}
           </Stepper>
-          <Grid container spacing={2} justify="center">
-            {step > 0 ? (
-              <Grid item>
-                <Button
-                  disabled={step === 0}
-                  variant="contained"
-                  color="primary"
-                  onClick={() => setStep((s) => s - 1)}
-                >
-                  Back
-                </Button>
-              </Grid>
-            ) : null}
-            <Grid item>
-              <Button
-                startIcon={props.isSubmitting ? <CircularProgress size="1rem" /> : null}
-                disabled={props.isSubmitting}
-                variant="contained"
-                color="primary"
-                type="submit"
-              >
-                {props.isSubmitting ? 'Submitting' : isLastStep() ? 'Submit' : 'Next'}
-              </Button>
-            </Grid>
-          </Grid>
         </Form>
       )}
     </Formik>
